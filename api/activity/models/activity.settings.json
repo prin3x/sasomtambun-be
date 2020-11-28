@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activities",
+  "info": {
+    "name": "Activity",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "main_content": {
+      "type": "richtext"
+    },
+    "given_value": {
+      "type": "integer"
+    },
+    "main_image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "administrator": {
+      "model": "administrator",
+      "via": "activities"
+    },
+    "proofs": {
+      "collection": "proof",
+      "via": "activity"
+    },
+    "images": {
+      "via": "activity",
+      "collection": "images"
+    }
+  }
+}

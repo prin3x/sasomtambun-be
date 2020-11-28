@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "donations",
+  "info": {
+    "name": "Donation"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "main_content": {
+      "type": "text"
+    },
+    "short_description": {
+      "type": "string"
+    },
+    "main_image_url": {
+      "type": "richtext"
+    },
+    "target_points": {
+      "type": "integer"
+    },
+    "avail_points": {
+      "type": "integer"
+    },
+    "administrator": {
+      "model": "administrator",
+      "via": "donations"
+    },
+    "donates": {
+      "via": "donation",
+      "collection": "donate"
+    },
+    "images": {
+      "via": "donation",
+      "collection": "images"
+    }
+  }
+}
